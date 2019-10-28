@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "articulos",
+  "info": {
+    "name": "articulo",
+    "description": "Demo SNR "
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Titulo": {
+      "minLength": 10,
+      "required": true,
+      "type": "string"
+    },
+    "Contenido": {
+      "type": "text"
+    },
+    "Imagen": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "autor": {
+      "model": "user",
+      "via": "articulos",
+      "plugin": "users-permissions"
+    }
+  }
+}
